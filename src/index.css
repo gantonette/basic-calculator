@@ -180,3 +180,59 @@ input:focus, textarea:focus, select:focus {
 .bmi-container .img-container img {
   height: 100px;
 }
+
+/* *************BMR Calculator CSSS************* */
+.bmr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 50%;
+  background-color: #e3b3da;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 2px 64px rgba(0, 0, 0, 0.1);
+}
+
+.bmr-container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 8px 4px;
+  border-radius: 16px;
+}
+
+.bmr-container .btn {
+  display: block;
+  width: 100%;
+  border: 1px solid rgb(122, 106, 169);
+  margin: 8px 0;
+  color: #2e5174;
+  background-color: #f3dcff;
+  font-size: 20px;
+  padding: 10px 0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.bmr-container .btn:hover {
+  background-color: #f9f7b2;
+}
+
+.bmr-container .btn-outline {
+  background-color: #A7C7E7;
+  color: #2e5174;
+}
+
+.bmr-container .center {
+  text-align: center;
+  margin: 24 px 0;
+}
+
+.bmr-container .img-container {
+  text-align: center;
+}
+
+.bmr-container .img-container img {
+  height: 100px;
+}

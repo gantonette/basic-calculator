@@ -10,6 +10,11 @@ function App() {
   const ops = ["+", "-", "*", "/", "."];
 
 
+  // state (BMR)
+  const [bmr, setBmr] = useState(0);
+  const [age, setAge] = useState(0);
+
+
 
   // state (BMI)
   const [weight, setWeight] = useState(0);
@@ -50,6 +55,21 @@ function App() {
       }
     }
   }
+
+  // bmr calculation
+  let calcBmr = (event) => {
+    event.preventDefault();
+
+    if (weight === 0 || height === 0) {
+      setMessage('Please enter your weight and height');
+      
+    } else {
+      let bmr = 655.1 + (9.563 * weight) + (1.85 * height) - (4.676 * age);
+      setBmr(bmr.toFixed(2));
+
+    }
+  }
+
 
   let reload = () => {
     window.location.reload();
@@ -152,7 +172,40 @@ function App() {
         </div>
       </div>
 
+
+      {/* bmr-calculator */}
+      <div className="bmr-container">
+        <h2 className='bmrCalcCenter'>BMR Calculator</h2>
+        <form onSubmit={calcBmr}>
+          <div>
+            <label>
+              Weight (kgs)</label>
+            <input value={weight} onChange={(event) => setWeight(event.target.value)} />
+          </div>
+          <div>
+            <label>
+              Height (meters)</label>
+            <input value={height} onChange={(event) => setHeight(event.target.value)} />
+          </div>
+          <div>
+            <label>
+              Age (years)</label>
+            <input value={age} onChange={(event) => setAge(event.target.value)} />
+          </div>
+          <div>
+            <button className='btn' type='submit'>Submit</button>
+            <button className='btn btn-outline' onClick={reload} type='submit'>Reload</button>
+          </div>
+        </form>
+
+        <div className='center'>
+          <h3>Your BMR is: {bmr}</h3>
+          <p>{message}</p>
+        </div>
+      </div>
+
     
+
       {/* basic calculator */}  
       <div className="calculator"> 
         <div className="display">
