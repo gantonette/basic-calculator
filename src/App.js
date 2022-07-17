@@ -4,6 +4,7 @@ import { useState } from 'react';
 function App() {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
+  const [total, setTotal] = useState("");
 
   const ops = ["+", "-", "*", "/", "."];
 
@@ -54,6 +55,17 @@ function App() {
     setCalc(value);
   }
 
+
+  
+  // basic addition function
+  const basicCalc = () => {
+    var firstNumber = document.getElementById("firstNumber").value;
+    var secondNumber = document.getElementById("secondNumber").value;
+    var total = parseInt(firstNumber) + parseInt(secondNumber);
+    setTotal(total.toString());
+    
+  }
+
   return (
     <div className="App">
       <div className="calculator"> 
@@ -78,6 +90,24 @@ function App() {
           <button onClick={calculate}>=</button>
         </div>
       </div>
+
+
+
+      {/* Addition Basic Calculator (trying to learn basic React Hooks) */}
+      <div className="basicCalc">
+            <div className="display">
+                <h1>Addition of two numbers</h1>
+                <span>Enter First Number: </span>
+                <input type="text" id="firstNumber"></input>
+                <br/>
+                <span>Enter Second Number: </span>
+                <input type="text" id="secondNumber"></input>
+                <br/>
+                { total || "0" } 
+                <br/>
+                <button onClick={basicCalc}>Calculate</button>
+            </div>
+        </div>
     </div>
   );
 }
